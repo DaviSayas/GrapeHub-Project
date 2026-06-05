@@ -61,8 +61,13 @@ app.include_router(collections.router)
 app.include_router(reports.router)
 
 
-@app.get("/api/health", tags=["meta"])
+@app.get("/health", tags=["meta"])
 def health():
+    return {"status": "ok", "app": "GrapeHub", "version": "1.0.0"}
+
+
+@app.get("/api/health", tags=["meta"])
+def health_api():
     return {"status": "ok", "app": "GrapeHub", "version": "1.0.0"}
 
 
